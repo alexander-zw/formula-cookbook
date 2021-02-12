@@ -21,3 +21,9 @@ This reference sheet contains summation formulas useful for calculating an algor
 The reason I made this sheet is that although any class that does complexity analysis will mention a few of these formulas, they often are not comprehensive and contain duplicates (1 + 2 + 4 + ... + n is really a substitution of variables from 1 + 2 + 4 + ... + 2^n).
 
 This sheet originated when I was taking CS 61A and CS 61B at UC Berkeley. I then shared them through HKN review sessions, and I thought it was time I put them in a PDF.
+
+## Random Variables
+
+This reference sheet contains information about commonly encountered probability distributions, both discrete and continuous. It includes the random variable's range, probability mass function, probability distribution function, cumulative distribution function, expectation, and variance.
+
+I compiled this sheet while taking CS 70 at UC Berkeley because, you get the gist now, there was no comprehensive reference I could find. I also used it in HKN review sessions, but now it finally has a home.

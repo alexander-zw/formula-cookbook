@@ -1,0 +1,44 @@
+\documentclass[12pt]{article}
+\input{commands}
+\renewcommand{\arraystretch}{2.1} % Increase table row spacing
+
+% headers/footers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO]{Random Variables} % title
+\fancyhead[LO]{The Formula Cookbook} % project
+\fancyfoot[RO]{\thepage}
+\renewcommand{\headrulewidth}{2pt}
+
+\date{February 2020} % date
+
+\begin{document}
+
+\section{Discrete Distributions}
+
+\noindent
+\begin{tabular}{c|cccc}
+    $X$ & Range & $\Pb(X=k)$ & $\E(X)$ & $\var(X)$ \\
+    \hline
+    Uniform($a,b$) & $a..b$ & $\ds\frac1{b-a+1}$ & $\ds\frac{a+b}2$ & $\ds\frac{(b-a+1)^2-1}{12}$ \\
+    Bernoulli($p$) & $0,1$ & $\ds\begin{cases}
+    p & X=1 \\ 1-p & X=0
+    \end{cases}$ & $p$ & $p(1-p)$ \\
+    Binomial($n,p$) & $0..n$ & $\ds\binom nk p^k(1-p)^{n-k}$ & $np$ & $np(1-p)$ \\
+    Hypergeometric($N,K,n$) & $0..n$ & $\ds\frac{\binom Kk\binom{N-K}{n-k}}{\binom N n}$ & $\ds n\frac KN$ & $\ds n\frac KN\frac{N-K}N\frac{N-n}{N-1}$ \\
+    Geometric($p$) & $1..\infty$ & $(1-p)^{k-1}p$ & $\ds\frac1p$ & $\ds\frac{1-p}{p^2}$ \\
+    Poisson($\lambda$) & $0..\infty$ & $\ds e^{-\lambda}\frac{\lambda^k}{k!}$ & $\lambda$ & $\lambda$
+\end{tabular}
+
+\section{Continuous Distributions}
+
+\noindent
+\begin{tabular}{c|ccccc}
+    $X$ & Range & $\PDF(X=x)$ & $\CDF(X=x)$ & $\E(X)$ & $\var(X)$ \\
+    \hline
+    Uniform($a,b$) & $[a,b]$ & $\ds\frac1{b-a}$ & $\ds\frac{x-a}{b-a}$ & $\ds\frac{a+b}2$ & $\ds\frac{(b-a)^2}{12}$ \\
+    Exponential($\lambda$) & $[0,\infty)$ & $\lambda e^{-\lambda x}$ & $1-e^{-\lambda x}$ & $\ds\frac1\lambda$ & $\ds\frac1{\lambda^2}$ \\
+    Normal($\mu,\sigma^2$) & $(-\infty,\infty)$ & $\ds\frac1{\sqrt{2\pi\sigma^2}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$ & $\ds\Phi\pfrac{x-\mu}\sigma$ & $\mu$ & $\sigma^2$ \\
+\end{tabular}
+
+\end{document}
