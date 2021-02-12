@@ -13,38 +13,60 @@
 
 \begin{document}
 
+    Convention: \\
+
+\begin{tabular}{c|c|c}
+    variable type & notation & examples \\
+    \hline
+    scalar & regular lowercase & $x,f,n$ \\
+    vector & bold lowercase & $\bd y,\bd f,\bd b$ \\
+    matrix & uppercase & $X,Y,A$ \\
+    independent variable & x & $x,\bd x,X$ \\
+    dependent variable & y or z & $y,\bd z,Y$ \\
+    function & f & $f(\bd x),\bd f(y)$ \\
+    constant & a, b, or c & $A,\bd b, c$ \\
+    dimension & n, m, or k & $n,m,k$ \\
+\end{tabular}
+
 \section{Definitions}
 
 \begin{align}
-    \undbr{\nabla_{\annot{\bd x}{n\times1}}f}{n\times1}
+    \undbr{\nabla_{\annot{\bd x}{n\times1}}y}{n\times1}
     &= \begin{mat}
-        \pypx f{x_1} \\ \vdots \\ \pypx f{x_n}
+        \pypx y{x_1} \\ \vdots \\ \pypx y{x_n}
     \end{mat}
     \bbr
-    \undbr{J_{\annot{\bd x}{n\times1}}\annotop{\bd f}{m\times1}}{m\times n}
+    \undbr{J_{\annot{\bd x}{n\times1}}\annotop{\bd y}{m\times1}}{m\times n}
     &= \begin{mat}
-        \pypx{f_1}{x_1} & \cdots & \pypx{f_1}{x_n} \\
+        \pypx{y_1}{x_1} & \cdots & \pypx{y_1}{x_n} \\
         \vdots & \ddots & \vdots \\
-        \pypx{f_m}{x_1} & \cdots &  \pypx{f_m}{x_n}
+        \pypx{y_m}{x_1} & \cdots &  \pypx{y_m}{x_n}
     \end{mat}
     = \begin{mat}
-        \pypx{\bd f}{x_1} & \cdots & \pypx{\bd f}{x_n}
+        \pypx{\bd y}{x_1} & \cdots & \pypx{\bd y}{x_n}
     \end{mat}
     = \begin{mat}
-        \pp{\nabla_{\bd x}f_1}^T \\ \vdots \\ \pp{\nabla_{\bd x}f_m}^T
+        \pp{\nabla_{\bd x}y_1}^T \\ \vdots \\ \pp{\nabla_{\bd x}y_m}^T
     \end{mat}
     \bbr
-    \undbr{\nabla^2_{\annot{\bd x}{n\times1}}f}{n\times n}
+    \undbr{\nabla^2_{\annot{\bd x}{n\times1}}y}{n\times n}
     &= \begin{mat}
-        \ppypx f{x_1} & \cdots & \pzpxy f{x_1}{x_n} \\
+        \ppypx y{x_1} & \cdots & \pzpxy y{x_1}{x_n} \\
         \vdots & \ddots & \vdots \\
-        \pzpxy f{x_n}{x_1} & \cdots &  \ppypx f{x_n}
+        \pzpxy y{x_n}{x_1} & \cdots &  \ppypx y{x_n}
     \end{mat}
     = \begin{mat}
-        \nabla_{\bd x}\pypx{\bd f}{x_1} & \cdots & \nabla_{\bd x}\pypx{\bd f}{x_n}
+        \nabla_{\bd x}\pypx{\bd y}{x_1} & \cdots & \nabla_{\bd x}\pypx{\bd y}{x_n}
     \end{mat}
     = \begin{mat}
-        \pp{\ppx{x_1}\nabla_{\bd x}f}^T \\ \vdots \\ \pp{\ppx{x_n}\nabla_{\bd x}f}^T
+        \pp{\ppx{x_1}\nabla_{\bd x}y}^T \\ \vdots \\ \pp{\ppx{x_n}\nabla_{\bd x}y}^T
+    \end{mat}
+    \bbr
+    \undbr{\nabla_{\annot{X}{m\times n}}y}{m\times n}
+    &= \begin{mat}
+        \pypx y{X_{11}} & \cdots & \pypx y{X_{1n}} \\
+        \vdots & \ddots & \vdots \\
+        \pypx y{X_{m1}} & \cdots &  \ppypx y{X_{mn}}
     \end{mat}
 \end{align}
 
@@ -69,9 +91,9 @@
     \undbr{\nabla_{X}\annot{\bd a^T}{1\times n}\annotop{X^T}{n\times m}\annot{\bd b}{m\times1}}{m\times n}
     &= \annot{\bd b}{m\times 1}\annotop{\bd a^T}{1\times n}
     \bbr
-    \undbr{\nabla_{X}\annot{\bd a^T}{1\times n}\annotop{X}{n\times m}\annot{D}{m\times m}\annotop{X}{m\times n}\annot{\bd b}{n\times1}}{m\times n}
-    &= \annot{D^T}{m\times m}\annotop{X}{m\times n}\undbr{\bd a\bd b^T}{n\times n}
-    + \annot{D}{m\times m}\annotop{X}{m\times n}\undbr{\bd b\bd a^T}{n\times n}
+    \undbr{\nabla_{X}\annot{\bd a^T}{1\times n}\annotop{X}{n\times m}\annot{C}{m\times m}\annotop{X}{m\times n}\annot{\bd b}{n\times1}}{m\times n}
+    &= \annot{C^T}{m\times m}\annotop{X}{m\times n}\undbr{\bd a\bd b^T}{n\times n}
+    + \annot{C}{m\times m}\annotop{X}{m\times n}\undbr{\bd b\bd a^T}{n\times n}
     \bbr
     \ppx x\annot{|Y|}{n\times n}
     &=|Y|\Tr\bigg(\annot{Y\iv}{n\times n}\annot{\pypx Yx}{n\times n}\bigg)
@@ -83,9 +105,8 @@
 \section{Product and Chain Rule}
 
 \begin{align}
-    \undbr{J_{\annot{\bd x}{n\times1}}\annotop{C}{m\times k}\annot{\bd y}{k\times1}}{m\times n}
-    &= \annot{C}{m\times k}\undbr{J_{\bd x}\bd y}{k\times n}
-    \sppp C \text{ is a constant}
+    \undbr{J_{\annot{\bd x}{n\times1}}\annotop{A}{m\times k}\annot{\bd y}{k\times1}}{m\times n}
+    &= \annot{A}{m\times k}\undbr{J_{\bd x}\bd y}{k\times n}
     \bbr
     \undbr{J_{\annot{\bd x}{n\times1}}z\annot{\bd y}{m\times1}}{m\times n}
     &= \annot{\bd y}{m\times1}\undbr{(\nabla_{\bd x}z)^T}{1\times n}
