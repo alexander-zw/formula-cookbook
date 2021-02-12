@@ -1,0 +1,50 @@
+\documentclass[12pt]{article}
+\input{commands}
+\renewcommand{\arraystretch}{2.1} % Increase table row spacing
+
+% headers/footers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO]{Asymptotic Analysis} % title
+\fancyhead[LO]{The Formula Cookbook} % project
+\fancyfoot[RO]{\thepage}
+\renewcommand{\headrulewidth}{2pt}
+
+\date{February 2020} % date
+
+\begin{document}
+
+\section{How to Use}
+
+    This reference includes formulas useful for analyzing the time or space
+    complexity of algorithms. If the algorithm is recursive, the runtime boils down
+    to calculating the time in each level of recursion, then summing all the levels.
+    If the algorithm is iterative, it boils down to summing the time in each
+    iteration. These summations can be complicated, hence the formulas in this
+    reference sheet. \\
+    
+    A useful fact: If a variable $x$ is divided by a constant $y$ at each step, it
+    will reach $1$ after about $\log_y x$ steps.
+    
+    These formulas can be used flexibly. The last index $n$ can be substituted for
+    a function of other $n$. For example:
+    
+    $1^2+2^2+3^2+\cdots+\log^2n=\Theta(\log^3n)$
+    
+    $1+2+2^2+\cdots+n=1+2+2^2+\cdots+2^{\log n}=\Theta(2^{\log n})=\Theta(n)$
+    
+\section{Summation Formulas}
+
+\noindent
+\begin{tabular}{cc|cc}
+    Expanded Form & Summation & Exact Value & Complexity \\
+    \hline
+    $1+1+1+\cdots+1$ & $\displaystyle\sum_{i=1}^n 1$ & $n$ & $\Theta(n)$ \\
+    $1+2+3+\cdots+n$ & $\displaystyle\sum_{i=1}^n i$ & $\half n(1+n)$ & $\Theta(n^2)$ \\
+    $1^p+2^p+3^p+\cdots+n^p$ & $\displaystyle\sum_{i=1}^n i^p$ & N/A & $\Theta(n^{p+1})$ \\
+    $1+a+a^2+\cdots+a^n$ & $\displaystyle\sum_{i=0}^n a^i, a>1$ & $\displaystyle\frac{a^{n+1}-1}{a-1}$ & $\Theta(a^n)$ \\
+    $1+a+a^2+\cdots+a^n$ & $\displaystyle\sum_{i=0}^n a^i, a<1$ & $\displaystyle\frac{1-a^{n+1}}{1-a}$ & $\Theta(1)$ \\
+    $\log1+\log2+\log3+\cdots+\log n$ & $\displaystyle\sum_{i=1}^n \log i$ & $\log(n!)$ & $\Theta(n\log n)$
+\end{tabular}
+
+\end{document}
