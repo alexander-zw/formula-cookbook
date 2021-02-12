@@ -1,0 +1,111 @@
+\documentclass[12pt]{article}
+\input{commands}
+
+% headers/footers
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[RO]{Vector Calculus} % title
+\fancyhead[LO]{The Formula Cookbook} % project
+\fancyfoot[RO]{\thepage}
+\renewcommand{\headrulewidth}{2pt}
+
+\date{February 2020} % date
+
+\begin{document}
+
+\section{Definitions}
+
+\begin{align}
+    \undbr{\nabla_{\annot{\bd x}{n\times1}}f}{n\times1}
+    &= \begin{mat}
+        \pypx f{x_1} \\ \vdots \\ \pypx f{x_n}
+    \end{mat}
+    \bbr
+    \undbr{J_{\annot{\bd x}{n\times1}}\annotop{\bd f}{m\times1}}{m\times n}
+    &= \begin{mat}
+        \pypx{f_1}{x_1} & \cdots & \pypx{f_1}{x_n} \\
+        \vdots & \ddots & \vdots \\
+        \pypx{f_m}{x_1} & \cdots &  \pypx{f_m}{x_n}
+    \end{mat}
+    = \begin{mat}
+        \pypx{\bd f}{x_1} & \cdots & \pypx{\bd f}{x_n}
+    \end{mat}
+    = \begin{mat}
+        \pp{\nabla_{\bd x}f_1}^T \\ \vdots \\ \pp{\nabla_{\bd x}f_m}^T
+    \end{mat}
+    \bbr
+    \undbr{\nabla^2_{\annot{\bd x}{n\times1}}f}{n\times n}
+    &= \begin{mat}
+        \ppypx f{x_1} & \cdots & \pzpxy f{x_1}{x_n} \\
+        \vdots & \ddots & \vdots \\
+        \pzpxy f{x_n}{x_1} & \cdots &  \ppypx f{x_n}
+    \end{mat}
+    = \begin{mat}
+        \nabla_{\bd x}\pypx{\bd f}{x_1} & \cdots & \nabla_{\bd x}\pypx{\bd f}{x_n}
+    \end{mat}
+    = \begin{mat}
+        \pp{\ppx{x_1}\nabla_{\bd x}f}^T \\ \vdots \\ \pp{\ppx{x_n}\nabla_{\bd x}f}^T
+    \end{mat}
+\end{align}
+
+\section{Matrix-Vector Derivatives}
+
+\begin{align}
+    \undbr{\nabla_{\bd x}\annotop{\bd a^T}{1\times n}\annot{\bd x}{n\times1}}{n\times1}
+    &= \annot{\bd a}{n\times1}
+    \bbr
+    \undbr{\nabla_{\bd x}\annot{\bd x^T}{1\times n}\annotop{A}{n\times n}\annot{\bd x}{n\times1}}{n\times1}
+    &= \undbr{(A+A^T)}{n\times n}\annot{\bd x}{n\times1}
+    \bbr
+    \undbr{\nabla^2_{\bd x}\annot{\bd x^T}{1\times n}\annotop{A}{n\times n}\annot{\bd x}{n\times1}}{n\times1}
+    &= \undbr{A+A^T}{n\times n}
+    \bbr
+    \undbr{J_{\bd x}\annotop{A}{m\times n}\annot{\bd x}{n\times1}}{m\times n}
+    &= \annot{A}{m\times n}
+    \bbr
+    \undbr{\nabla_{X}\annot{\bd a^T}{1\times m}\annotop{X}{m\times n}\annot{\bd b}{n\times1}}{m\times n}
+    &= \annot{\bd a}{m\times 1}\annotop{\bd b^T}{1\times n}
+    \bbr
+    \undbr{\nabla_{X}\annot{\bd a^T}{1\times n}\annotop{X^T}{n\times m}\annot{\bd b}{m\times1}}{m\times n}
+    &= \annot{\bd b}{m\times 1}\annotop{\bd a^T}{1\times n}
+    \bbr
+    \undbr{\nabla_{X}\annot{\bd a^T}{1\times n}\annotop{X}{n\times m}\annot{D}{m\times m}\annotop{X}{m\times n}\annot{\bd b}{n\times1}}{m\times n}
+    &= \annot{D^T}{m\times m}\annotop{X}{m\times n}\undbr{\bd a\bd b^T}{n\times n}
+    + \annot{D}{m\times m}\annotop{X}{m\times n}\undbr{\bd b\bd a^T}{n\times n}
+    \bbr
+    \ppx x\annot{|Y|}{n\times n}
+    &=|Y|\Tr\bigg(\annot{Y\iv}{n\times n}\annot{\pypx Yx}{n\times n}\bigg)
+    \bbr
+    \ppx x\annot{Y\iv}{n\times n}
+    &=\annot{-Y\iv}{n\times n}\annot{\pypx Yx}{n\times n}\annot{Y\iv}{n\times n}
+\end{align}
+
+\section{Product and Chain Rule}
+
+\begin{align}
+    \undbr{J_{\annot{\bd x}{n\times1}}\annotop{C}{m\times k}\annot{\bd y}{k\times1}}{m\times n}
+    &= \annot{C}{m\times k}\undbr{J_{\bd x}\bd y}{k\times n}
+    \sppp C \text{ is a constant}
+    \bbr
+    \undbr{J_{\annot{\bd x}{n\times1}}z\annot{\bd y}{m\times1}}{m\times n}
+    &= \annot{\bd y}{m\times1}\undbr{(\nabla_{\bd x}z)^T}{1\times n}
+    + z\undbr{J_{\bd x}\bd y}{m\times n}
+    \bbr
+    \undbr{\nabla_{\annot{\bd x}{n\times1}}\annotop{\bd y^T}{1\times m}\annot{\bd z}{m\times1}}{n\times1}
+    &= \undbr{(J_{\bd x}\bd y)^T}{n\times m}\annot{\bd z}{m\times1}
+    + \undbr{(J_{\bd x}\bd z)^T}{n\times m}\annot{\bd y}{m\times1}
+    \bbr
+    \undbr{\ppx xf\annot{(\bd y)}{k\times1}}{1\times1}
+    &= \undbr{(\nabla_{\bd y}f(\bd y))^T}{1\times k}\annot{\pypx{\bd y}x}{k\times1}
+    \bbr
+    \undbr{\ppx x\annotop{\bd f}{m\times1}\annot{(\bd y)}{k\times1}}{m\times1}
+    &= \undbr{(J_{\bd y}\bd f(\bd y))}{m\times k}\annot{\pypx{\bd y}x}{k\times1}
+    \bbr
+    \undbr{\nabla_{\annot{\bd x}{n\times1}}f\annot{(\bd y)}{m\times1}}{n\times1}
+    &= \undbr{(J_{\bd x}\bd y)^T}{n\times m}\undbr{\nabla_{\bd y}f(\bd y)}{m\times1}
+    \bbr
+    \undbr{J_{\annot{\bd x}{n\times1}}\annotop{\bd f}{m\times1}\annot{(\bd y)}{k\times1}}{m\times n}
+    &= \undbr{(J_{\bd y}\bd f(\bd y))}{m\times k}\undbr{J_{\bd x}\bd y}{k\times n}
+\end{align}
+
+\end{document}

@@ -1,0 +1,134 @@
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+% display
+% \newcommand{\sectionbreak}{\clearpage} % Uncomment to start each question on a new page.
+\usepackage{indentfirst}
+\usepackage[export]{adjustbox}
+\usepackage{listings}
+\usepackage{gensymb}
+\usepackage{fancyhdr}
+\usepackage{color}
+\usepackage{titlesec}
+\renewcommand{\theenumi}{\alph{enumi}} % Use letters for lists.
+\allowdisplaybreaks
+\newcommand{\dsp}{\vspace{-7pt}} % display stuff
+\newcommand{\bbr}{\\[1.5ex]} % longer line break
+\newcommand{\spp}{\ \ }
+\newcommand{\sppp}{\ \ \ }
+\newcommand{\ds}{\displaystyle}
+
+% labels
+\newcommand{\annot}[2]{\underset{\substack{\uparrow \\ #2}}{#1}}
+\newcommand{\annotop}[2]{\overset{\substack{#2 \\ \downarrow}}{#1}}
+\newcommand{\undbr}[2]{\underbrace{#1}_{#2}}
+
+% sets
+\newcommand{\empt}{\varnothing}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Np}{\mathbb{N}_+}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\bij}{\textrm{bij}}
+
+% symbols
+\newcommand{\lam}{\mathit{\lambda}}
+\newcommand{\Lam}{\mathit{\Lambda}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\Sig}{\mathit{\Sigma}}
+\newcommand{\sig}{\mathit{\sigma}}
+\newcommand{\su}[1]{^{(#1)}}
+\newcommand{\br}[1]{^{[#1]}}
+\newcommand{\sign}{\mathrm{sign}}
+\newcommand{\ee}[1]{\times10^{#1}} % scientific notation
+\newcommand{\iv}{^{-1}}
+\newcommand{\pr}{^\prime}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\qed}{\rule{0.6em}{0.6em}}
+
+% parenthesis
+\newcommand{\pp}[1]{\left(#1\right)}
+\newcommand{\pfrac}[2]{\left(\frac{#1}{#2}\right)}
+\newcommand{\bb}[1]{\left[#1\right]}
+\newcommand{\set}[1]{\left\{#1\right\}}
+\DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\newcommand{\ang}[1]{\langle#1\rangle}
+
+% calculus
+\newcommand{\ddx}[1]{\frac{d}{d{#1}}}
+\newcommand{\dydx}[2]{\frac{d{#1}}{d{#2}}}
+\newcommand{\dddx}[1]{\frac{d^2}{d{#1}^2}}
+\newcommand{\ddydx}[2]{\frac{d^2{#1}}{d{#2}^2}}
+
+\newcommand{\ppx}[1]{\frac{\partial}{\partial{#1}}}
+\newcommand{\pppx}[1]{\frac{\partial^2}{\partial{#1}^2}}
+\newcommand{\ppxy}[2]{\frac{\partial^2}{\partial{#1}\partial{#2}}}
+\newcommand{\pnpx}[2]{\frac{\partial^{#2}}{\partial{#1}^{#2}}}
+\newcommand{\pypx}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\ppypx}[2]{\frac{\partial^2{#1}}{\partial{#2}^2}}
+\newcommand{\pzpxy}[3]{\frac{\partial^2{#1}}{\partial{#2}\partial{#3}}}
+\newcommand{\pnypx}[3]{\frac{\partial^{#3}{#1}}{\partial{#2}^{#3}}}
+
+% linear algebra
+\newcommand{\bd}[1]{\boldsymbol{\mathrm{#1}}}
+\newcommand{\ut}[1]{\hat{\boldsymbol{\mathrm{#1}}}}
+\newcommand{\bdbar}[1]{\boldsymbol{\mathrm{\bar{#1}}}}
+\newcommand{\bdtil}[1]{\boldsymbol{\mathrm{\tilde{#1}}}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\col}{\text{Col}}
+\newcommand{\nul}{\text{Null}}
+\newcommand{\spn}{\text{Span}}
+\newcommand{\proj}[1]{\text{proj}_{#1}}
+\DeclareMathOperator{\Tr}{Tr}
+\newenvironment{amatrix}[1]{ % augmented matrix (only one column right of bar
+  \left[\begin{array}{@{}*{#1}{c}|c@{}}
+}{
+  \end{array}\right]
+}
+\newenvironment{mat}{ % shorthand for bmatrix
+  \begin{bmatrix}
+}{
+  \end{bmatrix}
+}
+\newcommand{\argmin}[1]{\underset{#1}{\mathrm{argmin}}\ }
+\newcommand{\argmax}[1]{\underset{#1}{\mathrm{argmax}}\ }
+\newcommand{\Lag}{\mathcal{L}} % Lagrangian
+\newcommand{\LSE}{\text{LSE}} % Log Sum Exp
+\newcommand{\psd}{\succcurlyeq0}
+
+% abstract algebra
+\newcommand{\inmod}[1]{\ (\textrm{mod}\ {#1})}
+\newcommand{\GF}{\textrm{GF}}
+\newcommand{\cyc}[1]{\ensuremath{\left\langle #1\right\rangle}} % cyclic group
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Stab}{\textrm{Stab}}
+\newcommand{\ideal}{\trianglelefteq}
+\newcommand{\Aut}{\textrm{Aut}}
+
+% probability
+\newcommand{\Pb}{\mathbb{P}} % probability
+\newcommand{\E}{\mathbb{E}} % expectation
+\newcommand{\nPr}[2]{\frac{#1!}{(#1-#2)!}} % in factorial notation
+\newcommand{\var}{\mathrm{var}}
+\newcommand{\cov}{\mathrm{cov}}
+\newcommand{\corr}{\mathrm{Corr}}
+\newcommand{\PDF}{\mathrm{PDF}}
+\newcommand{\erf}{\mathrm{erf}}
+\newcommand{\Norm}{\mathcal{N}}
+
+% computer science
+\newcommand{\NP}{\textbf{NP}}
+\newcommand{\coNP}{\textbf{coNP}}
+\newcommand{\Ptime}{\textbf{P}}
+\newcommand{\PSPACE}{\textbf{PSPACE}}
+\newcommand{\BPP}{\textbf{BPP}}
+\newcommand{\IP}{\textbf{IP}}
+\newcommand{\poly}{\mathrm{poly}}
