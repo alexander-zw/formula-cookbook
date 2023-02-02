@@ -27,3 +27,9 @@ This sheet originated when I was taking CS 61A and CS 61B at UC Berkeley. I then
 This reference sheet contains information about commonly encountered probability distributions, both discrete and continuous. It includes the random variable's range, probability mass function, probability distribution function, cumulative distribution function, expectation, and variance.
 
 I compiled this sheet while taking CS 70 at UC Berkeley because, you get the gist now, there was no comprehensive reference I could find. I also used it in HKN review sessions, but now it finally has a home.
+
+## Proofs
+
+This guide is an introduction on how to approach proof problems. Instead of simply defining what proofs are or presenting only completed proofs, this note walks the reader through the entire process of writing a proof. Through examples, it teaches how to use various proof techniques to arrive at a solution.
+
+I was instructed to write this note by professor Anant Sahai when I was a TA for CS 70, but the course ended up not using it, so I am making it available here even though it doesn't exactly fit the category of a formula reference sheet.
