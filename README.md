@@ -30,6 +30,6 @@ I compiled this sheet while taking CS 70 at UC Berkeley because, you get the gis
 
 ## Proofs
 
-This guide is an introduction on how to approach proof problems. Instead of simply defining what proofs are or presenting only completed proofs, this note walks the reader through the entire process of writing a proof. Through examples, it teaches how to use various proof techniques to arrive at a solution.
+This guide is an introduction on how to approach proof problems. Instead of simply defining what proofs are or presenting only completed proofs, this note walks the reader through the entire process of writing a proof. Through examples, it teaches how to use various proof techniques to arrive at a solution. Due to historical reasons there are two versions, one that uses examples from linear algebra, and one that doesn't require linear algebra.
 
-I was instructed to write this note by professor Anant Sahai when I was a TA for CS 70, but the course ended up not using it, so I am making it available here even though it doesn't exactly fit the category of a formula reference sheet.
+I was instructed to write this note by professor Anant Sahai (hence the linear algebra) when I was a TA for CS 70, but the course ended up not using it, so I am making it available here even though it doesn't exactly fit the category of a formula reference sheet.
